@@ -5,7 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 # Python modules
-import os, logging 
+import os, logging, glob
 
 # Flask modules
 from flask               import render_template, request, url_for, redirect, send_from_directory
@@ -15,7 +15,8 @@ from werkzeug.exceptions import HTTPException, NotFound, abort
 # App modules
 from app        import app, lm, db, bc
 from app.models import User
-from app.forms  import LoginForm, RegisterForm
+from app.forms  import LoginForm, RegisterForm, MusicText
+from suara      import Suara
 
 # provide login manager with load_user callback
 @lm.user_loader
@@ -115,23 +116,36 @@ def login():
     return render_template( 'pages/login.html', form=form, msg=msg )
 
 # App main route + generic routing
-@app.route('/', defaults={'path': 'index.html'})
+@app.route('/', defaults={'path': 'index.html'}, methods=['GET', 'POST'])
 @app.route('/<path>')
 def index(path):
-
     if not current_user.is_authenticated:
         return redirect(url_for('login'))
-
+    
+    form = MusicText(request.form)
     content = None
 
-    try:
-
-        # try to match the pages defined in -> pages/<input file>
-        return render_template( 'pages/'+path )
-    
-    except:
-        
-        return render_template( 'pages/error-404.html' )
+    if form.validate_on_submit():
+        text = request.form.get('text', '', type=str)
+        if(len(text) > 0):
+            suaranya = Suara()
+            # Sebelum menulis yang baru, hapus yang lama.
+            files = glob.glob('app/static/audio/*')
+            for f in files:
+                os.remove(f)
+            suaranya.speak(text)
+        # return render_template(, form=form, content=content)
+        return redirect(url_for('index'))
+        # return render_template('pages/'+path, form=form, content=content)
+    else:
+        if(os.path.isfile('app/static/nama_audio.txt')):
+            file1 = open('app/static/nama_audio.txt', 'r')
+            alamat = file1.read()
+            file1.close()
+            return render_template('pages/'+path, form=form, content=alamat, pesan='Teks menggunakan Bahasa Indonesia.')
+        else:
+            content="Teks menggunakan Bahasa Indonesia."
+            return render_template('pages/'+path, form=form, content=content, pesan='Teks menggunakan Bahasa Indonesia.')
 
 # Return sitemap 
 @app.route('/sitemap.xml')
