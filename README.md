@@ -1,4 +1,4 @@
-# [Flask Dashboard Atlantis CH-Erased](https://appseed.us/admin-dashboards/flask-dashboard-atlantis)
+# [Flask Dashboard Atlantis Berubah](https://appseed.us/admin-dashboards/flask-dashboard-atlantis)
 
 > **Open-Source Admin Dashboard** coded in **Flask Framework** by **AppSeed** [Web App Generator](https://appseed.us/app-generator) - Features:
 
