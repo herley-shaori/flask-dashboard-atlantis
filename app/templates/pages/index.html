@@ -27,10 +27,17 @@
             <div class="card-body">
                 <h3 class="card-title">
                     <a href="#">
-                        Teks
+                        Teks yang Ditulis
                     </a>
                 </h3>
                 {{ form.text(placeholder=pesan, class="form-control", rows="10") }}
+                <div class="separator-solid"></div>
+                <h3 class="card-title">
+                    <a href="#">
+                        Teks yang Disuarakan
+                    </a>
+                </h3>
+                <textarea rows="5" class="form-control" disabled>{{pesanSebelum}}</textarea>
                 <div class="separator-solid"></div>
                 <div class="col-md-3">
                   <button class="btn btn-success" type="submit">Submit</button>
