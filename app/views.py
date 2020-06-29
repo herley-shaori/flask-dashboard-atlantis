@@ -112,7 +112,6 @@ def login():
                 msg = "Wrong password. Please try again."
         else:
             msg = "Unknown user"
-
     return render_template( 'pages/login.html', form=form, msg=msg )
 
 # App main route + generic routing
@@ -124,6 +123,9 @@ def index(path):
     
     form = MusicText(request.form)
     content = None
+    berkasPesanSebelumnya = open('app/static/pesanSebelum.txt','r')
+    pesanSebelumnya=berkasPesanSebelumnya.read()
+    berkasPesanSebelumnya.close()
 
     if form.validate_on_submit():
         text = request.form.get('text', '', type=str)
@@ -134,15 +136,20 @@ def index(path):
             for f in files:
                 os.remove(f)
             suaranya.speak(text)
-        # return render_template(, form=form, content=content)
+            berkasPesanSebelumnya = open('app/static/pesanSebelum.txt','w')
+            berkasPesanSebelumnya.write(text);
+            berkasPesanSebelumnya.close()
         return redirect(url_for('index'))
-        # return render_template('pages/'+path, form=form, content=content)
     else:
         if(os.path.isfile('app/static/nama_audio.txt')):
+            print("Panjang Satu: ",len(pesanSebelumnya))
             file1 = open('app/static/nama_audio.txt', 'r')
             alamat = file1.read()
             file1.close()
-            return render_template('pages/'+path, form=form, content=alamat, pesan='Teks menggunakan Bahasa Indonesia.')
+            if(len(pesanSebelumnya)>0):
+                return render_template('pages/'+path, form=form, content=alamat, pesan='Teks menggunakan Bahasa Indonesia.', pesanSebelum=pesanSebelumnya)
+            else:
+                return render_template('pages/'+path, form=form, content=alamat, pesan='Teks menggunakan Bahasa Indonesia.')
         else:
             content="Teks menggunakan Bahasa Indonesia."
             return render_template('pages/'+path, form=form, content=content, pesan='Teks menggunakan Bahasa Indonesia.')
