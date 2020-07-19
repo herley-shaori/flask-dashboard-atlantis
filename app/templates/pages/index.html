@@ -87,121 +87,45 @@
       </div>
   </div>
 
-  <div class="row row-card-no-pd">
-        <div class="col-md-12">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-head-row card-tools-still-right">
-                <h4 class="card-title">Video Hasil Simulasi</h4>
-              </div>
-              <p class="card-category">
-              Map of the distribution of users around the world</p>
+<div class="row row-card-no-pd">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-head-row card-tools-still-right">
+            <h4 class="card-title">Video Hasil Simulasi</h4>
+          </div>
+          <p class="card-category">Studi Kasus I: Terjadi Pelanggaran pada Tempat Penyeberangan Orang.
+          </p>
+          <p>
+          	Skenario:
+          	<ol>
+			  <li>Deteksi dilakukan pada rambu penyeberangan. Jika lampu merah (pejalan kaki tidak boleh melintas) maka sistem tidak melakukan apa-apa.</li>
+			  <li>Saat lampu penyeberangan berwarna hijau, maka sistem melakukan deteksi apakah terdapat objek yang dapat dideteksi pada area tersebut.</li>
+			  <li>Jika terdapat objek deteksi (mobil atau motor) maka sistem memberikan peringatan lewat suara.</li>
+			</ol>
+			Pemasangan kamera disarankan pas menghadap jalan raya dan dalam posisi stabil. Disarankan area pemantauan tidak mengandung objek apapun yang dapat dideteksi. 
+          </p>
+          <button class="btn btn-success" type="submit">Mulai Simulasi</button>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+            	<div class="card-header">
+            		<b>Video Awal.</b>
+            	</div>
+            	<img src="/static/image/3.JPG" style="width:585px;height:400px;">
             </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="table-responsive table-hover table-sales">
-                    <table class="table">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/id.png" alt="indonesia">
-                            </div>
-                          </td>
-                          <td>Indonesia</td>
-                          <td class="text-right">
-                            2.320
-                          </td>
-                          <td class="text-right">
-                            42.18%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/us.png" alt="united states">
-                            </div>
-                          </td>
-                          <td>USA</td>
-                          <td class="text-right">
-                            240
-                          </td>
-                          <td class="text-right">
-                            4.36%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/au.png" alt="australia">
-                            </div>
-                          </td>
-                          <td>Australia</td>
-                          <td class="text-right">
-                            119
-                          </td>
-                          <td class="text-right">
-                            2.16%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/ru.png" alt="russia">
-                            </div>
-                          </td>
-                          <td>Russia</td>
-                          <td class="text-right">
-                            1.081
-                          </td>
-                          <td class="text-right">
-                            19.65%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/cn.png" alt="china">
-                            </div>
-                          </td>
-                          <td>China</td>
-                          <td class="text-right">
-                            1.100
-                          </td>
-                          <td class="text-right">
-                            20%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="flag">
-                              <img src="/static/assets/img/flags/br.png" alt="brazil">
-                            </div>
-                          </td>
-                          <td>Brasil</td>
-                          <td class="text-right">
-                            640
-                          </td>
-                          <td class="text-right">
-                            11.63%
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="mapcontainer">
-                    <div id="map-example" class="vmap"></div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-6">
+            	<div class="card-header">
+            		<b>Video Analitik.</b>
+            	</div>
+            	<img src="/static/image/3.JPG" style="width:585px;height:400px;">
             </div>
           </div>
         </div>
       </div>
-
+    </div>
+</div>
 {% endblock content %}
 
 {% block javascripts %}
