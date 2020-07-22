@@ -14,13 +14,85 @@
         <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
           <div>
             <h2 class="text-white pb-2 fw-bold">Parkir Ilegal</h2>
-            <h5 class="text-white pb-2 fw-bold">Aplikasi ditujukan kepada kendaraan yang memasuki area dilarang parkir.</h5>
+            <h5 class="text-white pb-2 fw-bold">Aplikasi ditujukan kepada kendaraan yang memasuki area dilarang parkir. Studi kasus dilakukan dengan asumsi bahwa area larangan parkir adalah <i>zebra-cross</i> karena dipakai orang untuk menyeberang jalan saat lampu boleh menyeberang (pada <i>zebra-cross</i>) menyala hijau.</h5>
           </div>
         </div>
       </div>
     </div>
-    
-<div class="row">
+
+<div class="row row-card-no-pd">
+  <div class="col-md-12">
+  <div class="card-header">
+  <div class="card-head-row card-tools-still-right">
+  <h4 class="card-title"><b>Video Hasil Simulasi</b></h4>
+  </div>
+
+  <p class="card-category">Studi Kasus I: Terjadi Pelanggaran pada Tempat Penyeberangan Orang.
+          </p>
+          <p>
+            Skenario:
+            <ol>
+        <li>Deteksi dilakukan pada rambu penyeberangan. Jika lampu merah (pejalan kaki tidak boleh melintas) maka sistem tidak melakukan apa-apa.</li>
+        <li>Saat lampu penyeberangan berwarna hijau, maka sistem melakukan deteksi apakah terdapat objek yang dapat dideteksi pada area tersebut.</li>
+        <li>Jika terdapat objek deteksi (mobil atau motor) maka sistem memberikan peringatan lewat suara.</li>
+      </ol>
+      Pemasangan kamera disarankan pas menghadap jalan raya dan dalam posisi stabil. Disarankan area pemantauan tidak mengandung objek apapun yang dapat dideteksi. 
+          </p>
+          </div>
+          </div>
+</div>
+
+<div class="row row-card-no-pd">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card-header">
+                <b>Video Awal.</b>
+              </div>
+              <video width="585" height="400" controls autoplay>
+          <source src="/static/video/awal.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+            </div>
+            <div class="col-md-6">
+              <div class="card-header">
+                <b>Video Hasil Analitik.</b>
+              </div>
+        <video width="585" height="400" controls autoplay>
+          <source src="/static/video/akhir.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row row-card-no-pd">
+  <div class="col-md-12">
+  <div class="card-header">
+  <div class="card-head-row card-tools-still-right">
+  <h4 class="card-title"><b>Penyisipan Suara</b></h4>
+  </div>
+
+  <p class="card-category">Suara yang didengar pada pemuataran video hasil simulasi berasal dari hasil pengolahan suara melalui panel ini. Ketika sebuah kalimat sudah dipilih, maka kalimat tersebut akan diulang untuk setiap pelanggaran. Kalimat yang dipilih adalah kalimat statis (kalimat sama yang berulang) untuk mengurangi kompleksitas.
+          </p>
+          <p>
+            Skenario:
+            <ol>
+        <li>Masukkan kalimat sembarang menggunakan Bahasa Indonesia pada bagian 'Teks yang Ditulis'. </li>
+        <li>Tekan tombol 'Submit'.</li>
+        <li>Suara dapat didengarkan pada bagian 'Hasil Pengolahan Suara'.</li>
+      </ol>
+          </p>
+          </div>
+          </div>
+</div>
+
+<div class="row row-card-no-pd">
   <div class="col-md-8">
       <form method="POST" action="">
         {{ form.hidden_tag() }}
@@ -47,21 +119,8 @@
           </div>
       </form>
   </div>
+
       <div class="col-md-4">
-          <div class="card card-profile">
-              <div class="card-body">
-                  <div class="user-profile text-center">
-                      <div class="name">Hasil Pengolahan Citra</div>
-                  </div>
-              </div>
-              <div class="card-footer">
-                  <div class="user-profile text-center">
-                      <img src="/static/image/3.JPG" alt="HTML5 Icon" style="width:300px;height:300px;">
-                  </div>
-              </div>
-          </div>
-
-
           <div class="card card-profile">
               <div class="card-header" style="background-image: url('/assets/img/blogpost.jpg')">
                   <div class="profile-picture">
@@ -85,47 +144,30 @@
               </div>
           </div>
       </div>
-  </div>
+</div>
 
 <div class="row row-card-no-pd">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-head-row card-tools-still-right">
-            <h4 class="card-title">Video Hasil Simulasi</h4>
-          </div>
-          <p class="card-category">Studi Kasus I: Terjadi Pelanggaran pada Tempat Penyeberangan Orang.
+  <div class="col-md-12">
+  <div class="card-header">
+  <div class="card-head-row card-tools-still-right">
+  <h4 class="card-title"><b>Dokumentasi</b></h4>
+  </div>
+  <p class="card-category">Dokumen perangkat lunak dapat diunduh pada tautan ini.
           </p>
-          <p>
-          	Skenario:
-          	<ol>
-			  <li>Deteksi dilakukan pada rambu penyeberangan. Jika lampu merah (pejalan kaki tidak boleh melintas) maka sistem tidak melakukan apa-apa.</li>
-			  <li>Saat lampu penyeberangan berwarna hijau, maka sistem melakukan deteksi apakah terdapat objek yang dapat dideteksi pada area tersebut.</li>
-			  <li>Jika terdapat objek deteksi (mobil atau motor) maka sistem memberikan peringatan lewat suara.</li>
-			</ol>
-			Pemasangan kamera disarankan pas menghadap jalan raya dan dalam posisi stabil. Disarankan area pemantauan tidak mengandung objek apapun yang dapat dideteksi. 
-          </p>
-          <button class="btn btn-success" type="submit">Mulai Simulasi</button>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">
-            	<div class="card-header">
-            		<b>Video Awal.</b>
-            	</div>
-            	<img src="/static/image/3.JPG" style="width:585px;height:400px;">
-            </div>
-            <div class="col-md-6">
-            	<div class="card-header">
-            		<b>Video Analitik.</b>
-            	</div>
-            	<img src="/static/image/3.JPG" style="width:585px;height:400px;">
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
+          </div>
 </div>
+
+<div class="row row-card-no-pd">
+  <div class="col-md-12">
+  <div class="card-header">
+  <div class="card-head-row card-tools-still-right">
+  <h4 class="card-title">Versi: 0.3 Beta</h4>
+  </div>
+  </div>
+  </div>
+</div>
+
 {% endblock content %}
 
 {% block javascripts %}
